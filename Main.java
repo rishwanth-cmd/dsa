@@ -503,71 +503,165 @@
 //     }
 // }
 
+// import java.util.*;
+// public class Main
+// {
+//     class Node
+//     {
+//         Node left,right;
+//         int data;
+//         Node(int data)
+//         {
+//             this.data=data;
+//             this.right=null;
+//             this.left=null;
+//         }
+//     }
+//     Node root;
+//     public void insert(int data)
+//     {
+//         Node newNode = new Node(data);
+//         if(root==null)
+//         {
+//             root = newNode;
+//             return;
+//         }
+//         Node temp = root;
+//         Node parent = null;
+//         while(temp!=null)
+//         {
+//             parent = temp;
+//             if(data<temp.data)
+//             {
+//                 temp = temp.left;
+//             }
+//             else
+//             {
+//                 temp = temp.right;
+//             }
+//         }
+//         if(data<parent.data)
+//         {
+//             parent.left = newNode;
+//         }
+//         else
+//         {
+//             parent.right = newNode;
+//         }
+//     }
+//     public void inOrder(Node root)
+//     {
+//         if(root!=null)
+//         {
+//             inOrder(root.left);
+//             System.out.print(root.data+" ");
+//             inOrder(root.right);
+//         }
+//     }
+//     public static void main(String[] args)
+//     {
+//         Scanner sc = new Scanner(System.in);
+//         int n =sc.nextInt();
+//         Main bst = new Main();
+//         for(int i=0;i<n;i++)
+//         {
+//             int data = sc.nextInt();
+//             bst.insert(data);
+//         }
+//         bst.inOrder(bst.root);
+//     }
+// }
+
+
 import java.util.*;
 public class Main
 {
-    class Node
-    {
-        Node left,right;
-        int data;
-        Node(int data)
+     class Node
         {
-            this.data=data;
-            this.right=null;
-            this.left=null;
-        }
-    }
-    Node root;
-    public void insert(int data)
-    {
-        Node newNode = new Node(data);
-        if(root==null)
-        {
-            root = newNode;
-            return;
-        }
-        Node temp = root;
-        Node parent = null;
-        while(temp!=null)
-        {
-            parent = temp;
-            if(data<temp.data)
+            Node right;
+            Node left;
+            int data;
+            Node(int data)
             {
-                temp = temp.left;
+                this.right=null;
+                this.left=null;
+                this.data=data;
+            }
+        }
+        Node root;
+        public void insert(int data)
+        {
+            Node newNode = new Node(data);
+            if(root==null)
+            {
+                root = newNode;
+                return;
+            }
+            Node temp = root;
+            Node parent = null;
+            while(temp!=null)
+            {
+                parent = temp;
+                if(data<temp.data)
+                {
+                    temp = temp.left;
+                }
+                else
+                {
+                    temp = temp.right;
+                }
+            }
+            if(data<parent.data)
+            {
+                parent.left = newNode;
             }
             else
             {
-                temp = temp.right;
+                parent.right = newNode;
             }
         }
-        if(data<parent.data)
+        public void show(Node root)
         {
-            parent.left = newNode;
+            if(root!=null)
+            {
+                show(root.left);
+                System.out.print(root.data+" ");
+                show(root.right);
+            }
         }
-        else
+        public boolean search(int key)
         {
-            parent.right = newNode;
+            Node temp = root;
+            while(temp!=null)
+            {
+                if(key==temp.data)
+                {
+                    return true;
+                }
+                if(key<temp.data)
+                {
+                    temp = temp.left;
+                }
+                else
+                {
+                    temp = temp.right;
+                }
+            }
+            return false;
         }
-    }
-    public void inOrder(Node root)
-    {
-        if(root!=null)
+        public static void main(String[] args)
         {
-            inOrder(root.left);
-            System.out.print(root.data+" ");
-            inOrder(root.right);
+            Scanner sc = new Scanner(System.in);
+            int n =sc.nextInt();
+            Main bst = new Main();
+            for(int i=0;i<n;i++)
+            {
+                bst.insert(sc.nextInt());
+            }
+            int k = sc.nextInt();
+            boolean t = bst.search(k);
+            System.out.print(t);
+            // bst.show(bst.root);
         }
-    }
-    public static void main(String[] args)
-    {
-        Scanner sc = new Scanner(System.in);
-        int n =sc.nextInt();
-        Main bst = new Main();
-        for(int i=0;i<n;i++)
-        {
-            int data = sc.nextInt();
-            bst.insert(data);
-        }
-        bst.inOrder(bst.root);
-    }
+         
 }
