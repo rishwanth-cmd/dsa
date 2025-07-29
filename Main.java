@@ -1,3 +1,4 @@
+// INSERT AT LAST
 // import java.util.*;
 // public class practice
 // {
@@ -51,6 +52,7 @@
 //     }
 // }
 
+// INSERT AT FIRST
 // import java.util.*;
 // public class practice
 // {
@@ -102,6 +104,7 @@
     
 // }
 
+// INSERT AT MID
 // import java.util.*;
 // public class practice
 // {
@@ -185,7 +188,7 @@
 // }
 
 
-
+// DELETE END
 // import java.util.*;
 // public class practice
 // {
@@ -261,7 +264,7 @@
 //     }
 // }
 
-
+//  DELETE FIRST 
 // import java.util.*;
 // public class practice
 // {
@@ -331,7 +334,7 @@
 // }
 
 
-
+// DELETE A VALUE
 // import java.util.*;
 // public class practice
 // {
@@ -430,6 +433,7 @@
 //     }
 // }
 
+// REVERSE 
 // import java.util.*;
 // public class practice
 // {
@@ -503,6 +507,7 @@
 //     }
 // }
 
+// INORDER TRAVERSAL
 // import java.util.*;
 // public class Main
 // {
@@ -572,7 +577,7 @@
 //     }
 // }
 
-
+// SEARCHING
 // import java.util.*;
 // public class Main
 // {
@@ -666,7 +671,7 @@
          
 // }
 
-
+//DELETION
 // import java.util.*;
 // public class Main
 // {
@@ -763,84 +768,84 @@
 //     }
 // }
 
-
-import java.util.*;
-public class Main
-{
-    class Node
-    {
-        Node left,right;
-        int data;
-        Node(int data)
-        {
-            this.data=data;
-            this.left=null;
-            this.right=null;
-        }
-    }
-    Node root;
-    public void insert(int data)
-    {
-        Node newNode = new Node(data);
-        if(root==null)
-        {
-            root = newNode;
-            return;
-        }
-        Node temp = root;
-        Node parent = null;
-        while(temp!=null)
-        {
-            parent=temp;
-            if(data<temp.data)
-            {
-                temp = temp.left;
-            }
-            else
-            {
-                temp = temp.right;
-            }
-        }
-        if(data<parent.data)
-        {
-            parent.left = newNode;
-        }
-        else
-        {
-            parent.right = newNode;
-        }
-    }
-    public void levelOrder(Node root)
-    {
-        if(root == null)
-        {
-            return;
-        }
-        Queue<Node> q = new LinkedList<>();
-        q.add(root);
-        while(!q.isEmpty())
-        {
-            Node temp = q.poll();
-            System.out.print(temp.data+" ");
-            if(temp.left!=null)
-            {
-                q.add(temp.left);
-            }
-            if(temp.right!=null)
-            {
-                q.add(temp.right);
-            }
-        }
-    }
-    public static void main(String[] args)
-    {
-        Scanner sc= new Scanner(System.in);
-        int n = sc.nextInt();
-        Main bst = new Main();
-        for(int i=0;i<n;i++)
-        {
-            bst.insert(sc.nextInt());
-        }
-        bst.levelOrder(bst.root);
-    }
-}
+//LEVEL ORDER
+// import java.util.*;
+// public class Main
+// {
+//     class Node
+//     {
+//         Node left,right;
+//         int data;
+//         Node(int data)
+//         {
+//             this.data=data;
+//             this.left=null;
+//             this.right=null;
+//         }
+//     }
+//     Node root;
+//     public void insert(int data)
+//     {
+//         Node newNode = new Node(data);
+//         if(root==null)
+//         {
+//             root = newNode;
+//             return;
+//         }
+//         Node temp = root;
+//         Node parent = null;
+//         while(temp!=null)
+//         {
+//             parent=temp;
+//             if(data<temp.data)
+//             {
+//                 temp = temp.left;
+//             }
+//             else
+//             {
+//                 temp = temp.right;
+//             }
+//         }
+//         if(data<parent.data)
+//         {
+//             parent.left = newNode;
+//         }
+//         else
+//         {
+//             parent.right = newNode;
+//         }
+//     }
+//     public void levelOrder(Node root)
+//     {
+//         if(root == null)
+//         {
+//             return;
+//         }
+//         Queue<Node> q = new LinkedList<>();
+//         q.add(root);
+//         while(!q.isEmpty())
+//         {
+//             Node temp = q.poll();
+//             System.out.print(temp.data+" ");
+//             if(temp.left!=null)
+//             {
+//                 q.add(temp.left);
+//             }
+//             if(temp.right!=null)
+//             {
+//                 q.add(temp.right);
+//             }
+//         }
+//     }
+//     public static void main(String[] args)
+//     {
+//         Scanner sc= new Scanner(System.in);
+//         int n = sc.nextInt();
+//         Main bst = new Main();
+//         for(int i=0;i<n;i++)
+//         {
+//             bst.insert(sc.nextInt());
+//         }
+//         bst.levelOrder(bst.root);
+//     }
+// }
