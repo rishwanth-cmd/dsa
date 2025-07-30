@@ -849,3 +849,89 @@
 //         bst.levelOrder(bst.root);
 //     }
 // }
+
+
+import java.util.*;
+public class Main
+{
+    class Node
+    {
+        Node left,right;
+        int data;
+        Node(int data)
+        {
+            this.left = null;
+            this.right = null;
+            this.data = data;
+        }
+    }
+    Node root;
+    Main()
+    {
+        root = null;
+    }
+    public void insert(int data)
+    {
+        Node newNode = new Node(data);
+        if(root==null)
+        {
+            root = newNode;
+            return;
+        }
+        Node temp = root;
+        Node parent = null;
+        while(temp!=null)
+        {
+            parent = temp;
+            if(data<temp.data)
+            {
+                temp = temp.left;
+            }
+            else
+            {
+                temp = temp.right;
+            }
+        }
+        if(data<parent.data)
+        {
+            parent.left = newNode;
+        }
+        else
+        {
+            parent.right = newNode;
+        }
+    }
+    public void show(Node root)
+    {
+        if(root!=null)
+        {
+            show(root.left);
+            System.out.print(root.data+" ");
+            show(root.right);
+        }
+    }
+    public int height(Node root)
+    {
+        if(root==null)
+        {
+            return 0;
+        }
+        int left = height(root.left);
+        int right = height(root.right);
+        return 1+Math.max(left,right);
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Main bst = new Main();
+        for(int i=0;i<n;i++)
+        {
+            bst.insert(sc.nextInt());
+        }
+        int r = bst.height(bst.root);
+        System.out.print(r);
+        
+    }
+}
