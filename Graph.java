@@ -82,3 +82,42 @@
 //         }
 //     }
 // }
+
+// DFS traversal
+// import java.util.*;
+// public class Graph
+// {
+//     public static void main(String[] args)
+//     {
+//         Scanner sc = new Scanner(System.in);
+//         int v = sc.nextInt();
+//         int e = sc.nextInt();
+//         List<List<Integer>> graph = new ArrayList<>();
+//         for(int i=0;i<=v;i++)
+//         {
+//             graph.add(new ArrayList<>());
+//         }
+//         for(int i=0;i<e;i++)
+//         {
+//             int u = sc.nextInt();
+//             int w = sc.nextInt();
+//             graph.get(u).add(w);
+//             graph.get(w).add(u);
+//         }
+//         boolean[] visited = new boolean[v+1];
+//         int start = sc.nextInt();
+//         dfs(graph, visited, start);
+//     }
+//     public static void dfs(List<List<Integer>> graph,boolean[] visited,int node)
+//     {
+//         visited[node] = true;
+//         System.out.print(node+" ");
+//         for(int neighbor : graph.get(node))
+//         {
+//             if(!visited[neighbor])
+//             {
+//                 dfs(graph, visited, neighbor);
+//             }
+//         }
+//     }
+// }
