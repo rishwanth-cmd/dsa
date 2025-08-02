@@ -429,3 +429,87 @@
 
 
 // Ancestor of the tree
+import java.util.*;
+public class BST
+{
+    public class Node
+    {
+        Node left,right;
+        int data;
+        Node(int data)
+        {
+            this.left = null;
+            this.right = null;
+            this.data = data;
+        }
+    }
+    Node root;
+    BST()
+    {
+        root = null;
+    }
+    public void insert(int data)
+    {
+        Node newNode = new Node(data);
+        if(root==null)
+        {
+            root = newNode;
+            return;
+        }
+        Node temp = root;
+        Node parent = null;
+        while(temp!=null)
+        {
+            parent = temp;
+            if(data<temp.data)
+            {
+                temp = temp.left;
+            }
+            else
+            {
+                temp = temp.right;
+            }
+        }
+        if(data<parent.data)
+        {
+            parent.left = newNode;
+        }
+        else
+        {
+            parent.right = newNode;
+        }
+    }
+    public int ancestor(Node root,int p,int q)
+    {
+        while(root!=null)
+        {
+            if(p<root.data && q<root.data)
+            {
+                root = root.left;
+            }
+            else if(p>root.data && q>root.data)
+            {
+                root = root.right;
+            }
+            else
+            {
+                return root.data;
+            }
+        }
+        return 0;
+    }
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        BST bst = new BST();
+        for(int i=0;i<n;i++)
+        {
+            bst.insert(sc.nextInt());
+        }
+
+        int r = bst.ancestor(bst.root, 2, 4);
+        System.out.println(r);
+
+    }
+}
